@@ -11,6 +11,7 @@ So how can I manage partitions using this script?
 According to the author:
 - Add the following arguments to kernel parameter:
 
+* ROOT: Partition where you store Android files. Default is auto-search for the partition that store booted kernel.
 * CHRDST: Defines the path where Android's ramdisk will be mounted to. Default is /chroot. (that will become the root of Android when Initrd ends)
 * SRCDST: Defines the path where the source of the partitions. Defaults to /mnt.
 * RAMDISK: The ramdisk device that should be mounted to CHRDST. See Device Identifiers. Default to SRCDST/ramdisk.img.
