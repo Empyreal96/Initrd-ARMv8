@@ -20,3 +20,13 @@ According to the author:
 * CACHE: The cache device that should be mounted to CHRDST/cache. See Device Identifiers. Defaults to tmpfs.
 * AUTOMOUNT: True/False (1/0). If true (1) all partitions like system, data and cache will be mounted by the boot script. Otherwise the fstab file contained within the ramdisk will be updated to match selected options.
 * DEBUG: True/False (1/0). If true (1) the boot script will run in debug mode. This enables TTY support with access to the main file system (initrd) even after Android has booted. It also starts a debug terminal before Android is started.
+
+The boot script offers several ways to identify a device (partition, image etc).
+
+--> Device Identifiers <--
+Dev Path: Regular dev path like /dev/sdb1.
+File Path: Path to an image file relative to SRCDST. This can either be a gz compressed cpio file that will be extracted or a file system image that will be mounted. WARNING: Any gz compressed cpio file will be extracted to tmpfs filesystems, e.g. memory. This is fine for things like a ramdisk, but do not attempt this with a large system image. Despite the fact that it would take time to extract, it might also end up requiring all of your available memory.
+UUID: Identify a partition based on it's uuid. This requires you to define the argument like DATA=UUID=<id>.
+PARTUUID: Identify a partition based on it's partuuid. This requires you to define the argument like DATA=PARTUUID=<id>. WARNING: This is likely not supported by the kernel. Make sure of it's support before using it.
+LABEL: Identify a partition based on it's label. This requires you to define the argument like DATA=LABEL=<id>.
+PARTLABEL: Identify a partition based on it's partlabel. This requires you to define the argument like DATA=PARTLABEL=<id>. WARNING: This is likely not supported by the kernel. Make sure of it's support before using it.
