@@ -30,3 +30,5 @@ UUID: Identify a partition based on it's uuid. This requires you to define the a
 PARTUUID: Identify a partition based on it's partuuid. This requires you to define the argument like DATA=PARTUUID=<id>. WARNING: This is likely not supported by the kernel. Make sure of it's support before using it.
 LABEL: Identify a partition based on it's label. This requires you to define the argument like DATA=LABEL=<id>.
 PARTLABEL: Identify a partition based on it's partlabel. This requires you to define the argument like DATA=PARTLABEL=<id>. WARNING: This is likely not supported by the kernel. Make sure of it's support before using it.
+
+You can edit my initrd image because it is not tested by me due to kernel does not load initrd.
